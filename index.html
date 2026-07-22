@@ -3,527 +3,230 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Optimus - Platform to Create</title>
-<meta name="description" content="The creative platform for teams who ship. Build, deploy, and scale with unprecedented velocity.">
+<title>Kanpasut Sangthong — Frontend Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="header" id="header">
-  <div class="container header__inner">
-    <a href="#" class="logo">Optimus<span class="logo__tm">TM</span></a>
-
-    <nav class="nav">
-      <a href="#features">Features</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#developers">Developers</a>
-      <a href="#pricing">Pricing</a>
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark"><b>KANPASUT</b>&nbsp;SANGTHONG</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" data-i18n="nav.home">Home</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#work" data-i18n="nav.work">Selected Work</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
-
-    <div class="header__actions">
-      <a href="#" class="link-btn">Sign in</a>
-      <a href="#" class="btn btn--primary btn--sm">Start creating</a>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button id="btnEN" class="active" onclick="setLang('en')">EN</button>
+        <button id="btnTH" onclick="setLang('th')">TH</button>
+      </div>
+      <button class="nav-toggle-btn" id="mobileToggle" aria-label="Menu">≡</button>
     </div>
-
-    <button class="burger" id="burger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#features">Features</a>
-    <a href="#how-it-works">How it works</a>
-    <a href="#developers">Developers</a>
-    <a href="#pricing">Pricing</a>
-    <div class="mobile-menu__divider"></div>
-    <a href="#" class="link-btn">Sign in</a>
-    <a href="#" class="btn btn--primary">Start creating</a>
   </div>
 </header>
 
-<main>
-
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <canvas id="glyphCanvas" aria-hidden="true"></canvas>
-    <div class="container hero__inner">
-      <span class="eyebrow reveal">The platform for modern teams</span>
-      <h1 class="hero__title reveal">The platform<br>to <span class="text-gradient">create</span></h1>
-      <p class="hero__subtitle reveal">Your toolkit to stop configuring and start innovating. Securely build, deploy, and scale the best experiences.</p>
-      <div class="hero__actions reveal">
-        <a href="#" class="btn btn--primary btn--lg">Start free trial</a>
-        <a href="#" class="btn btn--ghost btn--lg">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3.5L12.5 8L5 12.5V3.5Z" fill="currentColor"/></svg>
-          Watch demo
-        </a>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow" data-i18n="hero.eyebrow">Frontend Developer / Portfolio</div>
+      <h1>Kanpasut Sangthong</h1>
+      <div class="role" data-i18n="hero.role">Frontend Developer — building interfaces with an engineer's discipline</div>
+      <p class="sub" data-i18n="hero.sub">A frontend developer with a background in electronics engineering — systematic, detail-driven, and quick to understand how code logic and structure fit together.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#" download data-i18n="hero.cta1">↓ Download Resume</a>
+        <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta2">Contact Me</a>
       </div>
     </div>
-
-    <div class="marquee marquee--stats">
-      <div class="marquee__track" id="statsTrack">
-        <!-- duplicated via JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CAPABILITIES / FEATURES ================= -->
-  <section class="section" id="features">
-    <div class="container">
-      <span class="eyebrow">Capabilities</span>
-      <h2 class="section__title">Everything you need. <br>Nothing you don't.</h2>
-
-      <div class="feature-grid">
-        <article class="feature-card">
-          <span class="feature-card__num">01</span>
-          <h3>Instant Deployment</h3>
-          <p>Push to production in seconds. Our edge network ensures your applications load instantly, anywhere in the world.</p>
-        </article>
-
-        <article class="feature-card">
-          <span class="feature-card__num">02</span>
-          <h3>AI-Native Workflows</h3>
-          <p>Build intelligent applications with built-in AI capabilities. From inference to training, everything scales automatically.</p>
-        </article>
-
-        <article class="feature-card">
-          <span class="feature-card__num">03</span>
-          <h3>Real-time Collaboration</h3>
-          <p>Work together seamlessly. Live preview, instant feedback, and version control that actually makes sense.</p>
-          <div class="avatar-stack">
-            <span class="avatar">AB</span>
+    <div class="card-stage">
+      <div class="id-card">
+        <div class="id-card-face">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div class="chip"></div>
+            <div class="tag" data-i18n="hero.cardtag">Dev / EE</div>
           </div>
-        </article>
-
-        <article class="feature-card">
-          <span class="feature-card__num">04</span>
-          <h3>Enterprise Security</h3>
-          <p>Bank-grade encryption, SOC 2 compliance, and granular access controls. Your data stays yours.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PROCESS / HOW IT WORKS ================= -->
-  <section class="section" id="how-it-works">
-    <div class="container">
-      <span class="eyebrow">Process</span>
-      <h2 class="section__title">Three steps. <br>Infinite possibilities.</h2>
-
-      <div class="process-grid">
-        <div class="process-steps">
-          <div class="process-step">
-            <span class="process-step__num">I</span>
-            <div>
-              <h3>Connect your tools</h3>
-              <p>Integrate with your existing stack in minutes. We support 200+ data sources out of the box.</p>
-            </div>
+          <div>
+            <div class="name">Kanpasut<br>Sangthong</div>
+            <div class="role-line" data-i18n="hero.cardrole">Frontend Developer</div>
           </div>
-          <div class="process-step">
-            <span class="process-step__num">II</span>
-            <div>
-              <h3>Build your workflow</h3>
-              <p>Design powerful automations with our visual builder or write code directly.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <span class="process-step__num">III</span>
-            <div>
-              <h3>Ship to production</h3>
-              <p>Deploy globally with zero configuration. Your app goes live in under 30 seconds.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="code-window">
-          <div class="code-window__bar">
-            <div class="code-window__dots"><span></span><span></span><span></span></div>
-            <span class="code-window__filename">workflow.ts</span>
-            <span class="status-pill"><span class="status-dot"></span>Ready</span>
-          </div>
-          <pre class="code-window__body"><code><span class="ln">1</span><span class="tok-kw">import</span> { optimus } <span class="tok-kw">from</span> <span class="tok-str">'@optimus/core'</span>
-<span class="ln">2</span>
-<span class="ln">3</span>optimus.<span class="tok-fn">connect</span>({
-<span class="ln">4</span>  source: <span class="tok-str">'your-database'</span>,
-<span class="ln">5</span>  sync: <span class="tok-kw">true</span>
-<span class="ln">6</span>})</code></pre>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= INFRASTRUCTURE ================= -->
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">Infrastructure</span>
-      <h2 class="section__title">Global by <br>default.</h2>
-      <p class="section__lead">Deploy once, run everywhere. Our edge network spans 17 data centers across 6 continents, delivering sub-50ms latency to 99% of the world.</p>
-
-      <div class="stat-row">
-        <div class="stat-box">
-          <span class="stat-box__value">17</span>
-          <span class="stat-box__label">Data centers</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-box__value">99.99%</span>
-          <span class="stat-box__label">Uptime SLA</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-box__value">&lt;50ms</span>
-          <span class="stat-box__label">Global latency</span>
-        </div>
-      </div>
-
-      <div class="edge-panel">
-        <div class="edge-panel__header">
-          <span>Edge Network</span>
-          <span class="status-pill"><span class="status-dot"></span>All operational</span>
-        </div>
-        <div class="edge-grid">
-          <div class="edge-node">
-            <div class="edge-node__top"><span class="edge-node__city">San Francisco</span><span class="status-dot status-dot--sm"></span></div>
-            <span class="edge-node__region">US West</span>
-            <span class="edge-node__ping">12ms</span>
-          </div>
-          <div class="edge-node">
-            <div class="edge-node__top"><span class="edge-node__city">New York</span><span class="status-dot status-dot--sm"></span></div>
-            <span class="edge-node__region">US East</span>
-            <span class="edge-node__ping">18ms</span>
-          </div>
-          <div class="edge-node">
-            <div class="edge-node__top"><span class="edge-node__city">London</span><span class="status-dot status-dot--sm"></span></div>
-            <span class="edge-node__region">Europe</span>
-            <span class="edge-node__ping">24ms</span>
-          </div>
-          <div class="edge-node">
-            <div class="edge-node__top"><span class="edge-node__city">Tokyo</span><span class="status-dot status-dot--sm"></span></div>
-            <span class="edge-node__region">Asia Pacific</span>
-            <span class="edge-node__ping">32ms</span>
-          </div>
-          <div class="edge-node">
-            <div class="edge-node__top"><span class="edge-node__city">Sydney</span><span class="status-dot status-dot--sm"></span></div>
-            <span class="edge-node__region">Oceania</span>
-            <span class="edge-node__ping">45ms</span>
-          </div>
-          <div class="edge-node">
-            <div class="edge-node__top"><span class="edge-node__city">Sao Paulo</span><span class="status-dot status-dot--sm"></span></div>
-            <span class="edge-node__region">South America</span>
-            <span class="edge-node__ping">38ms</span>
+          <div class="barcode" aria-hidden="true">
+            <span style="height:60%"></span><span style="height:90%"></span><span style="height:40%"></span>
+            <span style="height:75%"></span><span style="height:55%"></span><span style="height:85%"></span>
+            <span style="height:30%"></span><span style="height:65%"></span><span style="height:95%"></span>
+            <span style="height:45%"></span><span style="height:70%"></span><span style="height:50%"></span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= LIVE METRICS ================= -->
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">Live metrics</span>
-      <h2 class="section__title">Performance you <br>can measure.</h2>
-
-      <div class="metrics-panel">
-        <div class="metrics-panel__header">
-          <span class="status-pill"><span class="status-dot"></span>Live</span>
-          <span class="metrics-panel__time" id="liveClock">--:--:-- --</span>
-        </div>
-        <div class="metrics-grid">
-          <div class="metric">
-            <span class="metric__value" data-target="284391" data-suffix="">0</span>
-            <span class="metric__label">API requests today</span>
-          </div>
-          <div class="metric">
-            <span class="metric__value" data-target="99.99" data-suffix="%" data-decimals="2">0%</span>
-            <span class="metric__label">Uptime this quarter</span>
-          </div>
-          <div class="metric">
-            <span class="metric__value" data-target="42" data-suffix="ms">0ms</span>
-            <span class="metric__label">Average response time</span>
-          </div>
-          <div class="metric">
-            <span class="metric__value" data-target="128" data-suffix="">0</span>
-            <span class="metric__label">Countries served</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= INTEGRATIONS ================= -->
-  <section class="section" id="integrations">
-    <div class="container">
-      <span class="eyebrow">Integrations</span>
-      <h2 class="section__title">Works with everything <br>you already use.</h2>
-      <p class="section__lead">200+ pre-built integrations. Connect your entire stack in minutes.</p>
-    </div>
-
-    <div class="marquee marquee--logos">
-      <div class="marquee__track marquee__track--left" id="logosTrackA"></div>
-    </div>
-    <div class="marquee marquee--logos">
-      <div class="marquee__track marquee__track--right" id="logosTrackB"></div>
-    </div>
-  </section>
-
-  <!-- ================= SECURITY ================= -->
-  <section class="section" id="security">
-    <div class="container">
-      <span class="eyebrow">Security</span>
-      <h2 class="section__title">Trust is <br>non-negotiable.</h2>
-      <p class="section__lead">Enterprise-grade security isn't optional. It's built into every layer of our platform, from infrastructure to application.</p>
-
-      <div class="badge-row">
-        <span class="badge">SOC 2</span>
-        <span class="badge">ISO 27001</span>
-        <span class="badge">HIPAA</span>
-        <span class="badge">GDPR</span>
-        <span class="badge">CCPA</span>
-      </div>
-
-      <div class="feature-grid feature-grid--sec">
-        <article class="feature-card">
-          <h3>SOC 2 Type II</h3>
-          <p>Independently audited security controls with continuous monitoring.</p>
-        </article>
-        <article class="feature-card">
-          <h3>End-to-end encryption</h3>
-          <p>AES-256 encryption for data at rest and TLS 1.3 in transit.</p>
-        </article>
-        <article class="feature-card">
-          <h3>Zero-trust architecture</h3>
-          <p>Every request is authenticated and authorized. No exceptions.</p>
-        </article>
-        <article class="feature-card">
-          <h3>GDPR &amp; HIPAA</h3>
-          <p>Full compliance with data protection and healthcare regulations.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= DEVELOPERS ================= -->
-  <section class="section" id="developers">
-    <div class="container developers__inner">
-      <div>
-        <span class="eyebrow">For developers</span>
-        <h2 class="section__title">Built by devs. <br>For devs.</h2>
-        <p class="section__lead">A thoughtfully designed SDK that gets out of your way. Ship faster with intuitive APIs and exceptional documentation.</p>
-
-        <ul class="check-list">
-          <li><strong>TypeScript native</strong><span>Full type safety with auto-generated types.</span></li>
-          <li><strong>Zero config</strong><span>Sensible defaults that just work.</span></li>
-          <li><strong>Edge-ready</strong><span>Runs anywhere: Node, Deno, Bun, browsers.</span></li>
-          <li><strong>12KB gzipped</strong><span>Lightweight with zero dependencies.</span></li>
-        </ul>
-
-        <div class="dev-links">
-          <a href="#">Read the docs →</a>
-          <a href="#">View on GitHub →</a>
-        </div>
-      </div>
-
-      <div class="terminal">
-        <div class="terminal__tabs">
-          <button class="terminal__tab is-active" data-tab="install">Install</button>
-          <button class="terminal__tab" data-tab="init">Initialize</button>
-          <button class="terminal__tab" data-tab="deploy">Deploy</button>
-        </div>
-        <div class="terminal__body">
-          <pre class="terminal__pane is-active" data-pane="install"><code><span class="tok-comment">$</span> npm install @optimus/sdk
-
-<span class="tok-comment"># or</span>
-
-<span class="tok-comment">$</span> yarn add @optimus/sdk
-<span class="tok-comment">$</span> pnpm add @optimus/sdk</code></pre>
-          <pre class="terminal__pane" data-pane="init"><code><span class="tok-kw">import</span> { optimus } <span class="tok-kw">from</span> <span class="tok-str">'@optimus/sdk'</span>
-
-<span class="tok-kw">const</span> client = optimus.<span class="tok-fn">init</span>({
-  apiKey: process.env.OPTIMUS_KEY
-})</code></pre>
-          <pre class="terminal__pane" data-pane="deploy"><code><span class="tok-comment">$</span> optimus deploy --prod
-
-<span class="tok-comment">✓</span> Build complete
-<span class="tok-comment">✓</span> Deployed to edge network</code></pre>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= TESTIMONIALS ================= -->
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">What people say</span>
-
-      <div class="testimonial">
-        <span class="testimonial__count">01 / 04</span>
-        <blockquote>"Optimus transformed our deployment pipeline. What used to take hours now happens in seconds."</blockquote>
-        <div class="testimonial__footer">
-          <div class="testimonial__person">
-            <span class="avatar">S</span>
-            <div>
-              <strong>Sarah Chen</strong>
-              <span>CTO, Meridian Labs</span>
-            </div>
-          </div>
-          <div class="testimonial__result">
-            <span>Key Result</span>
-            <strong>10x faster deployments</strong>
-          </div>
-        </div>
-      </div>
-
-      <p class="trusted-label">Trusted by forward-thinking teams</p>
-    </div>
-
-    <div class="marquee marquee--brands">
-      <div class="marquee__track" id="brandsTrack"></div>
-    </div>
-  </section>
-
-  <!-- ================= PRICING ================= -->
-  <section class="section" id="pricing">
-    <div class="container">
-      <span class="eyebrow">Pricing</span>
-      <h2 class="section__title">Simple, transparent <br>pricing</h2>
-      <p class="section__lead">Start free and scale as you grow. No hidden fees, no surprises.</p>
-
-      <div class="billing-toggle">
-        <span class="is-active" id="monthlyLabel">Monthly</span>
-        <button class="switch" id="billingSwitch" aria-label="Toggle annual billing"><span class="switch__knob"></span></button>
-        <span id="annualLabel">Annual<span class="save-pill">Save 17%</span></span>
-      </div>
-
-      <div class="pricing-grid">
-        <article class="price-card">
-          <span class="price-card__num">01</span>
-          <h3>Starter</h3>
-          <p class="price-card__desc">For individuals and small projects</p>
-          <div class="price-card__price"><span class="amount">$0</span><span class="period">/month</span></div>
-          <ul class="price-card__list">
-            <li>Up to 3 projects</li>
-            <li>1GB storage</li>
-            <li>Community support</li>
-            <li>Basic analytics</li>
-            <li>SSL certificates</li>
-          </ul>
-          <a href="#" class="btn btn--ghost btn--full">Start free</a>
-        </article>
-
-        <article class="price-card price-card--featured">
-          <span class="popular-pill">Most Popular</span>
-          <span class="price-card__num">02</span>
-          <h3>Pro</h3>
-          <p class="price-card__desc">For growing teams and businesses</p>
-          <div class="price-card__price"><span class="amount">$24</span><span class="period">/month</span></div>
-          <ul class="price-card__list">
-            <li>Unlimited projects</li>
-            <li>100GB storage</li>
-            <li>Priority support</li>
-            <li>Advanced analytics</li>
-            <li>Custom domains</li>
-            <li>Team collaboration</li>
-            <li>API access</li>
-          </ul>
-          <a href="#" class="btn btn--primary btn--full">Start trial</a>
-        </article>
-
-        <article class="price-card">
-          <span class="price-card__num">03</span>
-          <h3>Enterprise</h3>
-          <p class="price-card__desc">For large-scale operations</p>
-          <div class="price-card__price"><span class="amount">Custom</span></div>
-          <ul class="price-card__list">
-            <li>Everything in Pro</li>
-            <li>Unlimited storage</li>
-            <li>24/7 dedicated support</li>
-            <li>Custom integrations</li>
-            <li>SLA guarantee</li>
-            <li>On-premise option</li>
-            <li>Security audit</li>
-            <li>Custom contracts</li>
-          </ul>
-          <a href="#" class="btn btn--ghost btn--full">Contact sales</a>
-        </article>
-      </div>
-
-      <p class="pricing-footnote">All plans include automatic updates, HTTPS, and DDoS protection. <a href="#">Compare all features</a></p>
-    </div>
-  </section>
-
-  <!-- ================= FINAL CTA ================= -->
-  <section class="section cta">
-    <div class="container cta__inner">
-      <div class="hero__glow hero__glow--cta" aria-hidden="true"></div>
-      <h2 class="cta__title">Ready to build <br>something great?</h2>
-      <p class="section__lead">Join thousands of teams shipping faster with Optimus. Start free, scale infinitely.</p>
-      <div class="hero__actions">
-        <a href="#" class="btn btn--primary btn--lg">Start building free</a>
-        <a href="#" class="btn btn--ghost btn--lg">Talk to sales</a>
-      </div>
-      <span class="cta__note">No credit card required</span>
-    </div>
-  </section>
-
-</main>
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__brand">
-      <a href="#" class="logo">Optimus<span class="logo__tm">TM</span></a>
-      <p>The platform for teams who ship. Build, deploy, and scale with unprecedented velocity.</p>
-      <div class="footer__social">
-        <a href="#" aria-label="Twitter">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1-.7-.8-1.8-1.3-3-1.3-2.2 0-4 1.8-4 4 0 .3 0 .6.1.9-3.3-.2-6.3-1.8-8.3-4.2-.3.6-.5 1.3-.5 2 0 1.4.7 2.6 1.8 3.3-.6 0-1.3-.2-1.8-.5v.1c0 1.9 1.4 3.5 3.2 3.9-.3.1-.7.1-1 .1-.3 0-.5 0-.7-.1.5 1.6 2 2.7 3.7 2.7-1.4 1.1-3.1 1.7-5 1.7H2c1.8 1.1 3.9 1.8 6.1 1.8 7.3 0 11.3-6 11.3-11.3v-.5c.8-.6 1.5-1.3 2-2.1z"/></svg>
-        </a>
-        <a href="#" aria-label="GitHub">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.1-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.4-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.2-.4-1.3.1-2.6 0 0 .8-.3 2.7 1 .8-.2 1.6-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7 1 .7 2v3c0 .3.2.6.7.5C19.1 20.2 22 16.4 22 12c0-5.5-4.5-10-10-10z"/></svg>
-        </a>
-        <a href="#" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.5H3.3V21h3.6V8.5zM5.1 3C3.9 3 3 3.9 3 5.1c0 1.1.9 2 2.1 2s2.1-.9 2.1-2.1C7.2 3.9 6.3 3 5.1 3zM21 21h-3.6v-6.4c0-1.5 0-3.5-2.1-3.5s-2.5 1.7-2.5 3.4V21H9.2V8.5h3.5v1.7h.1c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.4 2.5 4.4 5.6V21z"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="footer__col">
-      <h4>Product</h4>
-      <a href="#features">Features</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#integrations">Integrations</a>
-    </div>
-
-    <div class="footer__col">
-      <h4>Developers</h4>
-      <a href="#developers">Documentation</a>
-      <a href="#">API Reference</a>
-      <a href="#developers">SDK</a>
-      <a href="#">Status</a>
-    </div>
-
-    <div class="footer__col">
-      <h4>Company</h4>
-      <a href="#">About</a>
-      <a href="#">Blog</a>
-      <a href="#">Careers<span class="hiring-pill">Hiring</span></a>
-      <a href="#">Contact</a>
-    </div>
-
-    <div class="footer__col">
-      <h4>Legal</h4>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#security">Security</a>
     </div>
   </div>
+</section>
 
-  <div class="container footer__bottom">
-    <span>© 2025 Optimus. All rights reserved.</span>
-    <span class="status-pill"><span class="status-dot"></span>All systems operational</span>
+<!-- ================= ABOUT ================= -->
+<section class="alt" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow" data-i18n="about.eyebrow">About</div>
+      <h2 style="margin-bottom:22px;" data-i18n="about.h">Engineering discipline, frontend craft</h2>
+      <div class="about-text">
+        <p data-i18n="about.p1">I'm a <strong>Frontend Developer</strong> who designs interfaces that are easy to use — clear hierarchy, honest feedback, no unnecessary friction.</p>
+        <p data-i18n="about.p2">My background is in <strong>Electronics Engineering</strong>, which shapes how I work: I think in systems, trace problems to their root, and pick up new code logic and structure quickly. That habit of methodical thinking carries directly into how I build for the web.</p>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><span data-i18n="about.f1l">Role</span><span data-i18n="about.f1v">Frontend Developer</span></div>
+      <div class="fact"><span data-i18n="about.f2l">Background</span><span data-i18n="about.f2v">B.Eng. Electronics Engineering</span></div>
+      <div class="fact"><span data-i18n="about.f3l">Focus</span><span data-i18n="about.f3v">UI systems, interaction, hand-off from Figma</span></div>
+      <div class="fact"><span data-i18n="about.f4l">Other capabilities</span><span data-i18n="about.f4v">Embedded &amp; AI edge systems</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="skills.eyebrow">Skills</div>
+      <h2 data-i18n="skills.h">Tools I build with</h2>
+    </div>
+    <div class="skills-row">
+      <div class="skill-chip"><span class="dot"></span>Figma</div>
+      <div class="skill-chip"><span class="dot"></span>HTML</div>
+      <div class="skill-chip"><span class="dot"></span>CSS</div>
+      <div class="skill-chip"><span class="dot"></span>JavaScript</div>
+      <div class="skill-chip"><span class="dot"></span>OpenCV</div>
+      <div class="skill-chip"><span class="dot"></span>Node.js</div>
+      <div class="skill-chip"><span class="dot"></span>Supabase/SQL</div>
+      <div class="skill-chip"><span class="dot"></span>PLC</div>
+      <div class="skill-chip"><span class="dot"></span>ESP32</div>
+    </div>
+    <p class="skill-note" data-i18n="skills.note">Backed by an electronics engineering foundation — Python, C, PLC, and ESP32 — which is where the systematic, root-cause approach to building UI comes from.</p>
+  </div>
+</section>
+
+<!-- ================= PHONE SHOWCASE ================= -->
+<section class="alt">
+  <div class="wrap phone-showcase">
+    <div>
+      <div class="eyebrow" data-i18n="phone.eyebrow">UI Craft</div>
+      <h2 style="margin-bottom:18px;" data-i18n="phone.h">Designed in Figma, built to hold up on a real screen</h2>
+      <p style="color:var(--ink-soft); font-size:16px; max-width:440px;" data-i18n="phone.p">Every interface starts as a system of components before it becomes a page — spacing, states, and hierarchy decided early so the build stays clean.</p>
+    </div>
+    <div class="phone-stage">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-notch"></div>
+          <div style="height:14px"></div>
+          <div class="bar w40"></div>
+          <div class="bar w80"></div>
+          <div class="block"></div>
+          <div class="bar w60"></div>
+          <div class="bar w40"></div>
+          <div class="block" style="height:44px"></div>
+          <div class="block" style="height:44px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="work.eyebrow">Selected Work</div>
+      <h2 data-i18n="work.h">Projects</h2>
+      <p data-i18n="work.p">Click a project title to open a gallery of screenshots.</p>
+    </div>
+
+    <div class="project" data-project="hayday" tabindex="0" role="button" aria-haspopup="dialog">
+      <div class="idx">01</div>
+      <div>
+        <h3 data-i18n="p1.title">Web HaydayShop (SinaShop)</h3>
+        <p class="desc" data-i18n="p1.desc">An online store with PromptPay QR checkout, an admin dashboard for inventory, and real-time sync via Supabase — deployed on Vercel.</p>
+        <div class="tools"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Supabase</span><span>Vercel</span></div>
+      </div>
+      <div class="meta"><div class="type" data-i18n="p1.type">Live Website</div><div class="arrow">→</div></div>
+    </div>
+
+    <div class="project" data-project="coffee" tabindex="0" role="button" aria-haspopup="dialog">
+      <div class="idx">02</div>
+      <div>
+        <h3 data-i18n="p2.title">Coffee Shop Website (Figma to Web)</h3>
+        <p class="desc" data-i18n="p2.desc">UI designed in Figma, then coded from scratch into a responsive website with smooth scroll and layout animation.</p>
+        <div class="tools"><span>Figma</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+      </div>
+      <div class="meta"><div class="type" data-i18n="p2.type">Live Website</div><div class="arrow">→</div></div>
+    </div>
+
+    <div class="project" data-project="safety" tabindex="0" role="button" aria-haspopup="dialog">
+      <div class="idx">03</div>
+      <div>
+        <h3 data-i18n="p3.title">Deep Learning-Based Safety Alert System</h3>
+        <p class="desc" data-i18n="p3.desc">An AI safety alert system built on ESP32, with a control GUI and a deep learning model trained in Google Colab.</p>
+        <div class="tools"><span>Python</span><span>ESP32 / C</span><span>Google Colab</span><span>Sensors</span></div>
+      </div>
+      <div class="meta"><div class="type" data-i18n="p3.type">Case Study</div><div class="arrow">→</div></div>
+    </div>
+
+    <div class="project" data-project="deltaarm" tabindex="0" role="button" aria-haspopup="dialog">
+      <div class="idx">04</div>
+      <div>
+        <h3 data-i18n="p4.title">Delta Arm Control Using AI Edge Computing</h3>
+        <p class="desc" data-i18n="p4.desc">A Delta-arm robot designed and built with 3D-modeled parts, programmed and optimized for real-time performance.</p>
+        <div class="tools"><span>SolidWorks</span><span>Blender</span><span>Python</span><span>PLC</span><span>Sensors</span></div>
+      </div>
+      <div class="meta"><div class="type" data-i18n="p3.type">Case Study</div><div class="arrow">→</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="alt" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow" data-i18n="contact.eyebrow">Contact</div>
+      <h2 data-i18n="contact.h">Let's build something together</h2>
+      <div class="contact-links">
+        <div class="contact-link"><span data-i18n="contact.l1">Email</span><a href="mailto:ne002545@gmail.com">ne002545@gmail.com</a></div>
+        <div class="contact-link"><span data-i18n="contact.l2">GitHub</span><a href="https://github.com/your-username" target="_blank" rel="noopener">github.com/your-username</a></div>
+        <div class="contact-link"><span data-i18n="contact.l3">LinkedIn</span><a href="https://line.me/ti/p/2Xi-aawc3g" target="_blank" rel="noopener">nezama111</a></div>
+        <div class="contact-link"><span data-i18n="contact.l4">Tel</span><a href="tel:06 2234 5413">0622345413</a></div>
+      </div>
+    </div>
+    <div class="contact-cta">
+      <h3 data-i18n="contact.ctah">Open to frontend roles</h3>
+      <p data-i18n="contact.ctap">Available for full-time positions and freelance projects. Reply within a day.</p>
+      <a class="btn btn-primary" style="width:100%; justify-content:center;" href="mailto:ne002545@gmail.com" data-i18n="hero.cta2">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span data-i18n="footer.left">© 2026 Kanpasut Sangthong</span>
+    <span data-i18n="footer.right">Built with care, in Thailand</span>
   </div>
 </footer>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project gallery">
+  <button class="lb-close" id="lbClose" aria-label="Close gallery">✕</button>
+  <div class="lb-frame">
+    <div class="lb-img" id="lbImg">Screenshot placeholder — replace with project image</div>
+  </div>
+  <div class="lb-title" id="lbTitle"></div>
+  <div class="lb-controls">
+    <button class="lb-btn" id="lbPrev" aria-label="Previous image">‹</button>
+    <span class="lb-count" id="lbCount">1 / 4</span>
+    <button class="lb-btn" id="lbNext" aria-label="Next image">›</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
