@@ -1,267 +1,185 @@
-:root{
-  --bg:#ffffff;
-  --bg-alt:#faf9f6;
-  --ink:#141414;
-  --ink-soft:#5c5b57;
-  --ink-faint:#9a9892;
-  --line:#e7e4dc;
-  --line-strong:#141414;
-  --accent:#a9822f;
-  --accent-soft:#f1e6cc;
-  --card:#ffffff;
-  --radius:2px;
-  --disp:'Space Grotesk', sans-serif;
-  --body:'Inter', sans-serif;
-  --mono:'IBM Plex Mono', monospace;
-  --maxw:1080px;
-  --ease:cubic-bezier(.22,1,.36,1);
-}
-*{box-sizing:border-box; margin:0; padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--bg); color:var(--ink); font-family:var(--body);
-  -webkit-font-smoothing:antialiased; line-height:1.6;
-  overflow-x:hidden;
-}
-a{color:inherit; text-decoration:none;}
-img{max-width:100%; display:block;}
-.wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
-.eyebrow{
-  font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--accent); display:flex; align-items:center; gap:10px; margin-bottom:18px;
-}
-.eyebrow::before{content:''; width:22px; height:1px; background:var(--accent);}
-h1,h2,h3{font-family:var(--disp); letter-spacing:-.01em; font-weight:600;}
-.visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);}
-:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
-
-/*  NAV  */
-header.nav{
-  position:sticky; top:0; z-index:60; background:rgba(255,255,255,.86);
-  backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
-}
-.nav-inner{
-  max-width:var(--maxw); margin:0 auto; padding:16px 28px;
-  display:flex; align-items:center; justify-content:space-between;
-}
-.nav-mark{font-family:var(--mono); font-size:13px; letter-spacing:.05em;}
-.nav-mark b{font-weight:500; color:var(--ink);}
-.nav-links{display:flex; align-items:center; gap:30px;}
-.nav-links a{
-  font-family:var(--mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--ink-soft); position:relative; padding:4px 0;
-}
-.nav-links a:hover{color:var(--ink);}
-.nav-right{display:flex; align-items:center; gap:18px;}
-.lang-toggle{
-  display:flex; border:1px solid var(--line-strong); border-radius:20px; overflow:hidden;
-  font-family:var(--mono); font-size:11.5px; letter-spacing:.05em;
-}
-.lang-toggle button{
-  background:none; border:none; padding:6px 13px; cursor:pointer; color:var(--ink-soft);
-  font-family:var(--mono); font-size:11.5px;
-}
-.lang-toggle button.active{background:var(--ink); color:#fff;}
-.nav-toggle-btn{display:none; background:none; border:1px solid var(--line-strong); padding:7px 10px; cursor:pointer; font-family:var(--mono); font-size:11px;}
-
-@media (max-width:760px){
-  .nav-links{display:none;}
-  .nav-toggle-btn{display:inline-block;}
-  .nav-links.mobile-open{
-    display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0;
-    background:#fff; border-bottom:1px solid var(--line); padding:16px 28px; gap:16px;
+/*  i18n  */
+const i18n = {
+  en: {
+    "nav.home":"Home","nav.about":"About","nav.skills":"Skills","nav.work":"Selected Work","nav.contact":"Contact",
+    "hero.eyebrow":"Frontend Developer / Portfolio",
+    "hero.role":"Frontend Developer — building interfaces with an engineer's discipline",
+    "hero.sub":"A frontend developer with a background in electronics engineering — systematic, detail-driven, and quick to understand how code logic and structure fit together.",
+    "hero.cta1":"↓ Download Resume","hero.cta2":"Contact Me",
+    "hero.cardtag":"Dev / EE","hero.cardrole":"Frontend Developer",
+    "about.eyebrow":"About","about.h":"Engineering discipline, frontend craft",
+    "about.p1":"I'm a <strong>Frontend Developer</strong> who designs interfaces that are easy to use — clear hierarchy, honest feedback, no unnecessary friction.",
+    "about.p2":"My background is in <strong>Electronics Engineering</strong>, which shapes how I work: I think in systems, trace problems to their root, and pick up new code logic and structure quickly. That habit of methodical thinking carries directly into how I build for the web.",
+    "about.f1l":"Role","about.f1v":"Frontend Developer",
+    "about.f2l":"Background","about.f2v":"B.Eng. Electronics Engineering",
+    "about.f3l":"Focus","about.f3v":"UI systems, interaction, hand-off from Figma",
+    "about.f4l":"Other capabilities","about.f4v":"Embedded & AI edge systems",
+    "skills.eyebrow":"Skills","skills.h":"Tools I build with",
+    "skills.note":"Backed by an electronics engineering foundation — Python, C, PLC, and ESP32 — which is where the systematic, root-cause approach to building UI comes from.",
+    "phone.eyebrow":"UI Craft","phone.h":"Designed in Figma, built to hold up on a real screen",
+    "phone.p":"Every interface starts as a system of components before it becomes a page — spacing, states, and hierarchy decided early so the build stays clean.",
+    "work.eyebrow":"Selected Work","work.h":"Projects","work.p":"Click a project title to open a gallery of screenshots.",
+    "p1.title":"Web HaydayShop (SinaShop)","p1.type":"Live Website",
+    "p1.desc":"An online store with PromptPay QR checkout, an admin dashboard for inventory, and real-time sync via Supabase — deployed on Vercel.",
+    "p2.title":"Coffee Shop Website (Figma to Web)",
+    "p2.desc":"UI designed in Figma, then coded from scratch into a responsive website with smooth scroll and layout animation.",
+    "p3.title":"Deep Learning-Based Safety Alert System","p3.type":"Case Study",
+    "p3.desc":"An AI safety alert system built on ESP32, with a control GUI and a deep learning model trained in Google Colab.",
+    "p4.title":"Delta Arm Control Using AI Edge Computing",
+    "p4.desc":"A Delta-arm robot designed and built with 3D-modeled parts, programmed and optimized for real-time performance.",
+    "contact.eyebrow":"Contact","contact.h":"Let's build something together",
+    "contact.l1":"Email","contact.l2":"GitHub","contact.l3":"LinkedIn",
+    "contact.ctah":"Open to frontend roles","contact.ctap":"Available for full-time positions and freelance projects. Reply within a day.",
+    "footer.left":"© 2026 Kanpasut Sangthong","footer.right":"Built with care, in Thailand"
+  },
+  
+  th: {
+    "nav.home":"หน้าแรก","nav.about":"เกี่ยวกับ","nav.skills":"ทักษะ","nav.work":"ผลงานคัดสรร","nav.contact":"ติดต่อ",
+    "hero.eyebrow":"Frontend Developer / พอร์ตโฟลิโอ",
+    "hero.role":"Frontend Developer — สร้างอินเทอร์เฟซด้วยวินัยแบบวิศวกร",
+    "hero.sub":"นักพัฒนา Frontend ที่มีพื้นฐานวิศวกรรมอิเล็กทรอนิกส์ ทำงานอย่างเป็นระบบ ใส่ใจรายละเอียด และเข้าใจตรรกะ-โครงสร้างของโค้ดได้อย่างรวดเร็ว",
+    "hero.cta1":"↓ ดาวน์โหลดเรซูเม่","hero.cta2":"ติดต่อฉัน",
+    "hero.cardtag":"Dev / EE","hero.cardrole":"Frontend Developer",
+    "about.eyebrow":"เกี่ยวกับ","about.h":"วินัยแบบวิศวกร กับงานฝีมือฝั่ง Frontend",
+    "about.p1":"ผมเป็น <strong>Frontend Developer</strong> ที่ออกแบบอินเทอร์เฟซให้ใช้งานง่าย ลำดับความสำคัญชัดเจน ตอบสนองผู้ใช้ตรงไปตรงมา ไม่มีจุดสะดุดเกินจำเป็น",
+    "about.p2":"พื้นฐานของผมคือ <strong>วิศวกรรมอิเล็กทรอนิกส์</strong> ซึ่งหล่อหลอมวิธีคิดของผมให้เป็นระบบ มองปัญหาจากต้นเหตุ และเรียนรู้ตรรกะ-โครงสร้างของโค้ดใหม่ ๆ ได้เร็ว แนวคิดที่เป็นระบบนี้ส่งต่อมาสู่วิธีที่ผมสร้างงานบนเว็บโดยตรง",
+    "about.f1l":"ตำแหน่ง","about.f1v":"Frontend Developer",
+    "about.f2l":"พื้นฐานการศึกษา","about.f2v":"วศ.บ. วิศวกรรมอิเล็กทรอนิกส์",
+    "about.f3l":"ความถนัด","about.f3v":"ระบบ UI, การโต้ตอบ, แปลงงานจาก Figma สู่เว็บ",
+    "about.f4l":"ความสามารถอื่นๆ","about.f4v":"ระบบสมองกลฝังตัวและ AI Edge",
+    "skills.eyebrow":"ทักษะ","skills.h":"เครื่องมือที่ใช้สร้างงาน",
+    "skills.note":"เสริมด้วยพื้นฐานวิศวกรรมอิเล็กทรอนิกส์ — Python, C, PLC และ ESP32 — ซึ่งเป็นที่มาของแนวคิดการแก้ปัญหาแบบเป็นระบบที่นำมาใช้กับการสร้าง UI",
+    "phone.eyebrow":"งานออกแบบ UI","phone.h":"ออกแบบใน Figma แล้วใช้งานได้จริงบนหน้าจอ",
+    "phone.p":"ทุกอินเทอร์เฟซเริ่มจากระบบคอมโพเนนต์ก่อนจะกลายเป็นหน้าเว็บ กำหนดระยะห่าง สถานะ และลำดับความสำคัญไว้ตั้งแต่ต้น เพื่อให้โค้ดที่ได้สะอาดและดูแลง่าย",
+    "work.eyebrow":"ผลงานคัดสรร","work.h":"โปรเจกต์","work.p":"คลิกชื่อโปรเจกต์เพื่อเปิดแกลเลอรีภาพหน้าจอ",
+    "p1.title":"Web HaydayShop (SinaShop)","p1.type":"เว็บไซต์ใช้งานจริง",
+    "p1.desc":"ร้านค้าออนไลน์พร้อมชำระเงินผ่าน PromptPay QR แดชบอร์ดสำหรับผู้ดูแลระบบจัดการสต๊อก และซิงค์ข้อมูลแบบเรียลไทม์ผ่าน Supabase ดีพลอยบน Vercel",
+    "p2.title":"เว็บไซต์ร้านกาแฟ (Figma to Web)",
+    "p2.desc":"ออกแบบ UI ใน Figma แล้วเขียนโค้ดขึ้นเป็นเว็บไซต์ตอบสนองทุกขนาดหน้าจอ พร้อมเอฟเฟกต์เลื่อนหน้าจอที่ลื่นไหล",
+    "p3.title":"ระบบแจ้งเตือนความปลอดภัยด้วย Deep Learning","p3.type":"กรณีศึกษา",
+    "p3.desc":"ระบบแจ้งเตือนความปลอดภัยด้วย AI บน ESP32 พร้อม GUI ควบคุม และโมเดล Deep Learning ที่ฝึกด้วย Google Colab",
+    "p4.title":"ควบคุมแขนกล Delta Arm ด้วย AI Edge Computing",
+    "p4.desc":"หุ่นยนต์แขนกล Delta ที่ออกแบบและสร้างจากชิ้นส่วนโมเดล 3 มิติ เขียนโปรแกรมควบคุมและปรับให้ทำงานแบบเรียลไทม์",
+    "contact.eyebrow":"ติดต่อ","contact.h":"มาสร้างผลงานร่วมกัน",
+    "contact.l1":"อีเมล","contact.l2":"GitHub","contact.l3":"LinkedIn",
+    "contact.ctah":"เปิดรับตำแหน่ง Frontend","contact.ctap":"พร้อมทำงานประจำและรับงานฟรีแลนซ์ ตอบกลับภายในหนึ่งวัน",
+    "footer.left":"© 2026 กรวิศว์ สังข์ทอง","footer.right":"สร้างด้วยความตั้งใจ จากประเทศไทย"
   }
+};
+let currentLang = 'en';
+function setLang(lang){
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.getElementById('btnEN').classList.toggle('active', lang==='en');
+  document.getElementById('btnTH').classList.toggle('active', lang==='th');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    const val = i18n[lang][key];
+    if(val !== undefined) el.innerHTML = val;
+  });
+  if(lightboxState.open) renderLightbox();
 }
 
-/*  HERO  */
-.hero{
-  padding:120px 0 90px; position:relative; overflow:hidden;
-}
-.hero-inner{
-  display:grid; grid-template-columns:1.05fr .95fr; gap:50px; align-items:center;
-}
-.hero h1{font-size:clamp(38px,5.4vw,64px); line-height:1.04; margin-bottom:18px;}
-.hero .role{
-  font-family:var(--mono); font-size:15px; color:var(--accent); margin-bottom:22px; letter-spacing:.02em;
-}
-.hero p.sub{color:var(--ink-soft); font-size:17px; max-width:460px; margin-bottom:34px;}
-.cta-row{display:flex; gap:14px; flex-wrap:wrap;}
-.btn{
-  font-family:var(--mono); font-size:13px; letter-spacing:.03em; padding:14px 26px;
-  border-radius:var(--radius); cursor:pointer; display:inline-flex; align-items:center; gap:8px;
-  transition:transform .25s var(--ease), background .25s;
-}
-.btn-primary{background:var(--ink); color:#fff; border:1px solid var(--ink);}
-.btn-primary:hover{background:var(--accent); border-color:var(--accent); transform:translateY(-2px);}
-.btn-ghost{background:none; border:1px solid var(--line-strong); color:var(--ink);}
-.btn-ghost:hover{background:var(--ink); color:#fff; transform:translateY(-2px);}
+/*  mobile nav  */
+document.getElementById('mobileToggle').addEventListener('click', ()=>{
+  document.getElementById('navLinks').classList.toggle('mobile-open');
+});
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click', ()=>document.getElementById('navLinks').classList.remove('mobile-open'));
+});
 
-/* 3D profile card */
-.card-stage{
-  perspective:1300px; display:flex; justify-content:center; align-items:center; height:420px;
-}
-.id-card{
-  width:280px; height:380px; position:relative; transform-style:preserve-3d;
-  animation:cardIntro 2.4s var(--ease) 1 both;
-}
-@keyframes cardIntro{
-  0%{transform:rotateY(-130deg) rotateX(8deg) scale(.86); opacity:0;}
-  55%{transform:rotateY(14deg) rotateX(-4deg) scale(1.02); opacity:1;}
-  75%{transform:rotateY(-6deg) rotateX(2deg) scale(1);}
-  100%{transform:rotateY(0deg) rotateX(0deg) scale(1);}
-}
-.id-card-face{
-  position:absolute; inset:0; border-radius:10px; border:1px solid var(--line-strong);
-  background:var(--ink); color:#fff; padding:26px; display:flex; flex-direction:column;
-  justify-content:space-between; backface-visibility:hidden; box-shadow:0 30px 60px -25px rgba(0,0,0,.45);
-}
-.id-card-face .chip{width:34px; height:24px; border:1px solid var(--accent); border-radius:3px; position:relative;}
-.id-card-face .chip::after{content:''; position:absolute; inset:4px; border:1px solid var(--accent); opacity:.6;}
-.id-card-face .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent);}
-.id-card-face .name{font-family:var(--disp); font-size:22px; font-weight:600; margin-top:16px;}
-.id-card-face .role-line{font-family:var(--mono); font-size:11.5px; color:#cfcdc6; margin-top:6px;}
-.id-card-face .barcode{display:flex; gap:2px; align-items:flex-end; height:26px;}
-.id-card-face .barcode span{width:2px; background:var(--accent); opacity:.7;}
-
-@media (prefers-reduced-motion: reduce){
-  .id-card{animation:none; transform:rotateY(0) rotateX(0);}
-}
-@media (max-width:900px){
-  .hero-inner{grid-template-columns:1fr; text-align:left;}
-  .card-stage{height:320px; order:-1;}
-  .id-card{width:220px; height:300px;}
+/*  phone parallax (guarded)  */
+const phoneEl = document.querySelector('.phone');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+if(phoneEl && !reduceMotion && finePointer){
+  const stage = document.querySelector('.phone-stage');
+  stage.addEventListener('mousemove', (e)=>{
+    const r = stage.getBoundingClientRect();
+    const x = (e.clientX - r.left)/r.width - .5;
+    const y = (e.clientY - r.top)/r.height - .5;
+    phoneEl.style.transform = `rotateY(${-18 + x*22}deg) rotateX(${6 - y*14}deg)`;
+  });
+  stage.addEventListener('mouseleave', ()=>{ phoneEl.style.transform = 'rotateY(-18deg) rotateX(6deg)'; });
 }
 
-/*  SECTION SHELL  */
-section{padding:100px 0;}
-section.alt{background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-.section-head{max-width:620px; margin-bottom:56px;}
-.section-head h2{font-size:clamp(28px,3.4vw,38px); margin-bottom:14px;}
-.section-head p{color:var(--ink-soft); font-size:16px;}
+/*  lightbox  */
+const galleries = {
+  hayday:   { titleKey:"p1.title", count:4, prompt:"HaydayShop screenshot", srcPrefix:"images/Hayday", ext:".png" },
+  coffee:   { titleKey:"p2.title", count:4, prompt:"Coffee Shop site screenshot", srcPrefix:"images/Coffee", ext:".png" },
+  safety:   { titleKey:"p3.title", count:4, prompt:"Safety Alert System photo", srcPrefix:"images/Safety", ext:".png" },
+  deltaarm: {
+    titleKey:"p4.title",
+    count:4,
+    prompt:"Delta Arm project photo",
+    srcs:[
+      "images/Delta Arm1.jpg",
+      "images/Delta Arm2.png",
+      "images/Delta Arm3.jpg",
+      "images/Delta Arm4.jpg"
+    ]
+  }
+};
 
-/*  ABOUT  */
-.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
-.about-text p{color:var(--ink-soft); font-size:16.5px; margin-bottom:18px;}
-.about-text p strong{color:var(--ink); font-weight:600;}
-.facts{border-top:1px solid var(--line);}
-.fact{display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); font-size:14.5px;}
-.fact span:first-child{font-family:var(--mono); color:var(--ink-faint); text-transform:uppercase; font-size:11.5px; letter-spacing:.08em;}
-@media (max-width:820px){.about-grid{grid-template-columns:1fr; gap:36px;}}
+const lightboxState = { open:false, key:null, index:0 };
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCount = document.getElementById('lbCount');
+const lbTitle = document.getElementById('lbTitle');
 
-/*  SKILLS  */
-.skills-row{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:34px;}
-.skill-chip{
-  border:1px solid var(--line-strong); padding:14px 22px; font-family:var(--mono); font-size:13.5px;
-  display:flex; align-items:center; gap:10px; background:#fff;
-  transition:background .2s, color .2s;
-}
-.skill-chip:hover{background:var(--ink); color:#fff;}
-.skill-chip .dot{width:6px; height:6px; border-radius:50%; background:var(--accent);}
-.skill-note{
-  font-size:14.5px; color:var(--ink-soft); border-left:2px solid var(--accent); padding-left:16px; max-width:560px;
-}
-
-/*  PHONE SHOWCASE  */
-.phone-showcase{display:grid; grid-template-columns:.9fr 1.1fr; gap:56px; align-items:center;}
-.phone-stage{perspective:1400px; display:flex; justify-content:center;}
-.phone{
-  width:230px; height:470px; border-radius:34px; background:#111; padding:10px;
-  box-shadow:0 40px 70px -30px rgba(0,0,0,.5);
-  transform:rotateY(-18deg) rotateX(6deg); transform-style:preserve-3d;
-  transition:transform .5s var(--ease);
-}
-.phone-stage:hover .phone{transform:rotateY(-6deg) rotateX(2deg);}
-.phone-screen{
-  width:100%; height:100%; border-radius:26px; background:linear-gradient(160deg,#fdfcf9,#efe9dc);
-  position:relative; overflow:hidden; display:flex; flex-direction:column; padding:20px 16px; gap:10px;
-}
-.phone-screen .bar{height:9px; border-radius:2px; background:rgba(20,20,20,.09);}
-.phone-screen .bar.w60{width:60%;} .phone-screen .bar.w40{width:40%;} .phone-screen .bar.w80{width:80%;}
-.phone-screen .block{height:64px; border-radius:6px; background:rgba(169,130,47,.16); border:1px solid rgba(169,130,47,.35);}
-.phone-notch{position:absolute; top:10px; left:50%; transform:translateX(-50%); width:70px; height:6px; background:#111; border-radius:4px;}
-@media (prefers-reduced-motion:reduce){ .phone{transition:none;} }
-@media (max-width:860px){ .phone-showcase{grid-template-columns:1fr;} .phone-stage{order:-1;} }
-
-/*  PROJECTS  */
-.project{
-  border-top:1px solid var(--line); padding:44px 0; display:grid; grid-template-columns:70px 1fr auto;
-  gap:24px; align-items:start; cursor:pointer;
-}
-.project:last-child{border-bottom:1px solid var(--line);}
-.project .idx{font-family:var(--mono); color:var(--ink-faint); font-size:14px; padding-top:6px;}
-.project h3{font-size:clamp(21px,2.6vw,28px); transition:color .2s;}
-.project:hover h3{color:var(--accent);}
-.project .desc{color:var(--ink-soft); font-size:15px; margin-top:10px; max-width:560px;}
-.project .tools{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
-.project .tools span{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); border:1px solid var(--line); padding:4px 9px;}
-.project .meta{text-align:right; padding-top:6px;}
-.project .meta .type{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); margin-bottom:8px;}
-.project .arrow{font-size:22px; color:var(--ink-faint); transition:transform .25s;}
-.project:hover .arrow{transform:translateX(6px); color:var(--ink);}
-@media (max-width:700px){
-  .project{grid-template-columns:1fr; gap:10px;}
-  .project .meta{text-align:left;}
+function openLightbox(key){
+  lightboxState.open = true; lightboxState.key = key; lightboxState.index = 0;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderLightbox();
+  document.getElementById('lbClose').focus();
 }
 
-/*  LIGHTBOX  */
-.lightbox{
-  position:fixed; inset:0; background:rgba(10,10,10,.94); z-index:100; display:none;
-  align-items:center; justify-content:center; flex-direction:column; padding:40px 20px;
-}
-.lightbox.open{display:flex;}
-.lb-frame{position:relative; width:min(880px,92vw); max-height:78vh; display:flex; align-items:center; justify-content:center;}
-.lb-img{
-  width:100%; height:60vh; border-radius:6px; background:linear-gradient(135deg,#2a2a2a,#1a1a1a);
-  display:flex; align-items:center; justify-content:center; color:#8d8a80; font-family:var(--mono);
-  font-size:14px; letter-spacing:.05em; text-align:center; padding:20px; border:1px solid #333;
-  overflow:hidden;
-}
-.lb-img img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
-  display:block;
-}
-.lb-controls{display:flex; align-items:center; gap:26px; margin-top:22px;}
-.lb-btn{
-  background:none; border:1px solid #4a4a4a; color:#fff; width:42px; height:42px; border-radius:50%;
-  cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center;
-}
-.lb-btn:hover{border-color:var(--accent); color:var(--accent);}
-.lb-count{font-family:var(--mono); color:#cfcdc6; font-size:13px; letter-spacing:.05em;}
-.lb-close{position:absolute; top:26px; right:30px; background:none; border:none; color:#fff; font-size:26px; cursor:pointer;}
-.lb-title{color:#fff; font-family:var(--disp); font-size:19px; margin-top:18px;}
-
-/*  CONTACT  */
-.contact-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:start;}
-.contact-links{display:flex; flex-direction:column; margin-top:30px;}
-.contact-link{
-  display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-top:1px solid var(--line);
-  font-size:16px;
-}
-.contact-links .contact-link:last-child{border-bottom:1px solid var(--line);}
-.contact-link span:first-child{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; color:var(--ink-faint); letter-spacing:.08em;}
-.contact-link a{font-weight:500;}
-.contact-link a:hover{color:var(--accent);}
-.contact-cta{
-  background:var(--ink); 
-  color:#fff; 
-  padding:44px 36px; 
-  border-radius:4px;
+function closeLightbox(){
+  lightboxState.open = false;
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
 }
 
-.contact-cta h3{
-  font-size:22px; 
-  margin-bottom:14px;
+function renderLightbox(){
+  const g = galleries[lightboxState.key];
+  if(!g) return;
+  const n = lightboxState.index + 1;
+  const src = g.srcs ? g.srcs[lightboxState.index] : g.srcPrefix ? `${g.srcPrefix}${n}${g.ext}` : `project-${lightboxState.key}-${n}.jpg`;
+  lbImg.innerHTML = `<img src="${src}" alt="${g.prompt} ${n}" />`;
+  lbCount.textContent = `${n} / ${g.count}`;
+  lbTitle.textContent = i18n[currentLang][g.titleKey] || '';
 }
 
-.contact-cta p{
-  color:#cfcdc6; 
-  font-size:14.5px; 
-  margin-bottom:26px;
+function stepLightbox(dir){
+  const g = galleries[lightboxState.key];
+  lightboxState.index = (lightboxState.index + dir + g.count) % g.count;
+  renderLightbox();
 }
 
-@media (max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+document.querySelectorAll('.project').forEach(p=>{
+  const key = p.getAttribute('data-project');
+  p.addEventListener('click', ()=>openLightbox(key));
+  p.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openLightbox(key); } });
+});
 
-footer{padding:36px 0; border-top:1px solid var(--line);}
-.foot-inner{display:flex; justify-content:space-between; align-items:center; font-family:var(--mono); font-size:12px; color:var(--ink-faint); flex-wrap:wrap; gap:10px;}
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbPrev').addEventListener('click', ()=>stepLightbox(-1));
+document.getElementById('lbNext').addEventListener('click', ()=>stepLightbox(1));
+lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLightbox(); });
+document.addEventListener('keydown', (e)=>{
+  if(!lightboxState.open) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowLeft') stepLightbox(-1);
+  if(e.key === 'ArrowRight') stepLightbox(1);
+});
+
+/* basic touch swipe */
+let touchX = null;
+lb.addEventListener('touchstart', (e)=>{ touchX = e.touches[0].clientX; });
+lb.addEventListener('touchend', (e)=>{
+  if(touchX===null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if(Math.abs(dx) > 40) stepLightbox(dx > 0 ? -1 : 1);
+  touchX = null;
+});
