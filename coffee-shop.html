@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember & Oak — Small-Batch Coffee Roastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="coffee-shop.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="navbar">
+    <div class="brand">
+      <div class="mark">E&O</div>
+      <div class="name">EMBER <span>&amp;</span> OAK</div>
+    </div>
+    <nav class="links" id="navLinks">
+      <button data-page="home" class="active">Home</button>
+      <button data-page="menu">Menu</button>
+      <button data-page="about">About</button>
+      <button data-page="contact">Contact</button>
+    </nav>
+    <button class="nav-toggle" id="navToggle">☰ Menu</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section class="page active" id="page-home">
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">Small-batch roastery · est. 2016</div>
+        <h1>Every cup<br>starts with <em>a story.</em></h1>
+        <p class="lede">We source green beans directly from three family farms, roast in five-kilo batches every morning, and pour each cup like it's the only one we're making today.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" data-page="menu">View the menu</button>
+          <button class="btn btn-ghost" data-page="about">Our story</button>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="steam"><span></span><span></span><span></span></div>
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1553962311-62f2471b159d?auto=format&fit=crop&w=900&q=80" alt="Latte art poured into a warm cup">
+        </div>
+      </div>
+    </div>
+
+    <div class="ticker">
+      <div class="track">
+        <span>OPEN DAILY 07:00 – 19:00</span>
+        <span>142 MAPLE STREET, RIVERSIDE</span>
+        <span>SINGLE-ORIGIN, ROASTED MONDAY–SATURDAY</span>
+        <span>OPEN DAILY 07:00 – 19:00</span>
+        <span>142 MAPLE STREET, RIVERSIDE</span>
+        <span>SINGLE-ORIGIN, ROASTED MONDAY–SATURDAY</span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Today's favorites</h2>
+        <div class="num">03 PICKS</div>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <img src="https://images.unsplash.com/photo-1613187869034-fa8e42b2ab1c?auto=format&fit=crop&w=700&q=80" alt="Cappuccino in a blue ceramic mug">
+          <div class="body">
+            <h3>Cardamom Cappuccino</h3>
+            <p>Double shot, steamed oat milk, a whisper of cardamom on top.</p>
+            <div class="price">$5.25</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="https://images.unsplash.com/photo-1721277000438-488066df7ac8?auto=format&fit=crop&w=700&q=80" alt="Coffee and a croissant on a wooden table">
+          <div class="body">
+            <h3>Almond Croissant Pair</h3>
+            <p>Warm croissant, brown-butter almond cream, filter coffee on the side.</p>
+            <div class="price">$8.00</div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="https://images.unsplash.com/photo-1642227218426-3786b108ed00?auto=format&fit=crop&w=700&q=80" alt="Close up of roasted coffee beans">
+          <div class="body">
+            <h3>Pour-Over Ethiopia</h3>
+            <p>Bright, floral, notes of bergamot and stone fruit. Brewed to order.</p>
+            <div class="price">$6.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="page" id="page-menu">
+    <div class="wrap">
+      <div class="menu-hero">
+        <div class="eyebrow" style="justify-content:center;">The menu</div>
+        <h1>Brewed to order, priced like a ticket.</h1>
+        <p>Every drink is pulled or poured after you order — nothing sits waiting. Ask your barista for today's single-origin.</p>
+      </div>
+
+      <div class="menu-tabs" id="menuTabs">
+        <button data-cat="espresso" class="active">Espresso</button>
+        <button data-cat="brewed">Brewed</button>
+        <button data-cat="pastries">Pastries</button>
+      </div>
+
+      <div class="ticket-grid" id="ticketGrid">
+        <!-- Espresso -->
+        <div class="ticket cat-espresso">
+          <div class="thead"><h3>Espresso Bar</h3><span>Ticket 01</span></div>
+          <div class="row"><div class="item"><b>Cortado</b><small>Equal parts espresso &amp; steamed milk</small></div><div class="price">$4.25</div></div>
+          <div class="row"><div class="item"><b>Flat White</b><small>Double ristretto, microfoam</small></div><div class="price">$4.75</div></div>
+          <div class="row"><div class="item"><b>Americano</b><small>Espresso, hot water, slow pour</small></div><div class="price">$3.75</div></div>
+          <div class="row"><div class="item"><b>Espresso Tonic</b><small>Single shot over tonic &amp; citrus</small></div><div class="price">$5.00</div></div>
+        </div>
+        <div class="ticket cat-espresso">
+          <img class="thumb" src="https://images.unsplash.com/photo-1565252556328-92ee4a9a0983?auto=format&fit=crop&w=700&q=80" alt="Cappuccino next to croissant bread">
+          <div class="thead"><h3>Milk &amp; Espresso</h3><span>Ticket 02</span></div>
+          <div class="row"><div class="item"><b>Cardamom Cappuccino</b><small>House blend, oat or whole milk</small></div><div class="price">$5.25</div></div>
+          <div class="row"><div class="item"><b>Vanilla Bean Latte</b><small>House vanilla syrup, light foam</small></div><div class="price">$5.50</div></div>
+          <div class="row"><div class="item"><b>Mocha</b><small>70% dark chocolate, espresso</small></div><div class="price">$5.75</div></div>
+        </div>
+
+        <!-- Brewed -->
+        <div class="ticket cat-brewed" style="display:none;">
+          <img class="thumb" src="https://images.unsplash.com/photo-1752756992329-961db6366376?auto=format&fit=crop&w=700&q=80" alt="Cozy coffee shop interior with menu board">
+          <div class="thead"><h3>Filter &amp; Pour-Over</h3><span>Ticket 03</span></div>
+          <div class="row"><div class="item"><b>House Filter</b><small>Rotating drip blend, brewed hourly</small></div><div class="price">$3.25</div></div>
+          <div class="row"><div class="item"><b>Pour-Over Ethiopia</b><small>Floral, bergamot, stone fruit</small></div><div class="price">$6.00</div></div>
+          <div class="row"><div class="item"><b>Pour-Over Colombia</b><small>Caramel, red apple, soft body</small></div><div class="price">$6.00</div></div>
+        </div>
+        <div class="ticket cat-brewed" style="display:none;">
+          <div class="thead"><h3>Cold Bar</h3><span>Ticket 04</span></div>
+          <div class="row"><div class="item"><b>Cold Brew</b><small>18-hour steep, served over ice</small></div><div class="price">$4.50</div></div>
+          <div class="row"><div class="item"><b>Iced Oat Latte</b><small>Double shot, oat milk, light ice</small></div><div class="price">$5.50</div></div>
+          <div class="row"><div class="item"><b>Nitro Cold Brew</b><small>Cascading nitrogen pour</small></div><div class="price">$5.25</div></div>
+        </div>
+
+        <!-- Pastries -->
+        <div class="ticket cat-pastries" style="display:none;">
+          <img class="thumb" src="https://images.unsplash.com/photo-1687978975635-c20d06724c4b?auto=format&fit=crop&w=700&q=80" alt="Croissants next to a cup of coffee">
+          <div class="thead"><h3>From the Oven</h3><span>Ticket 05</span></div>
+          <div class="row"><div class="item"><b>Almond Croissant</b><small>Brown-butter almond cream</small></div><div class="price">$4.75</div></div>
+          <div class="row"><div class="item"><b>Cinnamon Bun</b><small>Slow-proofed, brown-sugar glaze</small></div><div class="price">$4.25</div></div>
+          <div class="row"><div class="item"><b>Olive Sourdough</b><small>House-milled flour, 24hr ferment</small></div><div class="price">$5.00</div></div>
+        </div>
+        <div class="ticket cat-pastries" style="display:none;">
+          <img class="thumb" src="https://images.unsplash.com/photo-1710220988376-16dbd51fd1de?auto=format&fit=crop&w=700&q=80" alt="Croissants with almonds on a tray">
+          <div class="thead"><h3>Sweet Counter</h3><span>Ticket 06</span></div>
+          <div class="row"><div class="item"><b>Basque Cheesecake</b><small>Slice, torched top</small></div><div class="price">$5.50</div></div>
+          <div class="row"><div class="item"><b>Oat &amp; Date Cookie</b><small>Gluten-free, baked daily</small></div><div class="price">$3.50</div></div>
+          <div class="row"><div class="item"><b>Financier</b><small>Brown butter, seasonal fruit</small></div><div class="price">$4.00</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="page" id="page-about">
+    <div class="wrap about-hero">
+      <img src="https://images.unsplash.com/photo-1752756992329-961db6366376?auto=format&fit=crop&w=900&q=80" alt="Cozy coffee shop interior with wooden tables">
+      <div>
+        <div class="eyebrow">Since 2016</div>
+        <h1>Built by three roasters who couldn't agree on one bean.</h1>
+        <p>Ember &amp; Oak started as a shared roaster in the back of a bike shop. We couldn't settle on a single "house" coffee, so we decided not to — every batch is small enough to change, and every menu is a snapshot of what tasted best in cupping that week.</p>
+        <p>Today we still roast on-site, five days a week, and buy directly from three growing partners we visit every year.</p>
+      </div>
+    </div>
+
+    <div class="wrap process">
+      <h2>How a bag gets to your cup</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="n">01</div>
+          <h3>Source</h3>
+          <p>Green beans bought direct from partner farms in Ethiopia, Colombia and Guatemala.</p>
+        </div>
+        <div class="step">
+          <div class="n">02</div>
+          <h3>Roast</h3>
+          <p>Five-kilo batches, roasted on-site every morning and rested for 48 hours.</p>
+        </div>
+        <div class="step">
+          <div class="n">03</div>
+          <h3>Cup</h3>
+          <p>Every batch is tasted blind by the whole team before it goes on the menu.</p>
+        </div>
+        <div class="step">
+          <div class="n">04</div>
+          <h3>Pour</h3>
+          <p>Brewed to order at the bar — nothing sits in a pot waiting for you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap values">
+      <div class="value">
+        <h3>Direct trade</h3>
+        <p>We pay above fair-trade average and visit our three growing partners every year.</p>
+      </div>
+      <div class="value">
+        <h3>Zero waste bar</h3>
+        <p>Spent grounds go to a community garden two blocks away. Milk comes in returnable bottles.</p>
+      </div>
+      <div class="value">
+        <h3>Neighborhood first</h3>
+        <p>Free cupping nights on the last Thursday of every month — open to anyone curious.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="page" id="page-contact">
+    <div class="wrap contact-wrap">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h1>Come by, or drop us a line.</h1>
+        <p class="lede">Whether it's a wholesale order, a private cupping, or you just want to tell us the cortado was too hot — we read everything.</p>
+
+        <div class="info-row"><div class="k">Address</div><div class="v">142 Maple Street<br>Riverside, CA 92501</div></div>
+        <div class="info-row"><div class="k">Hours</div><div class="v">Mon–Fri 07:00–19:00<br>Sat–Sun 08:00–17:00</div></div>
+        <div class="info-row"><div class="k">Phone</div><div class="v">(555) 014-2298</div></div>
+        <div class="info-row"><div class="k">Email</div><div class="v">hello@emberandoak.coffee</div></div>
+      </div>
+
+      <form class="postcard" onsubmit="event.preventDefault(); this.querySelector('.btn-primary').textContent='Sent — thank you!';">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your name" required>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" required>
+        <label for="msg">Message</label>
+        <textarea id="msg" placeholder="Tell us what's on your mind..." required></textarea>
+        <button class="btn btn-primary" type="submit">Send message</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Ember &amp; Oak Coffee Roastery. All rights reserved.</p>
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">Newsletter</a>
+    </div>
+  </div>
+</footer>
+
+<script src="coffee-shop.js"></script>
+
+</body>
+</html>
