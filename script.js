@@ -1,4 +1,4 @@
-/* ---------------- i18n ---------------- */
+/*  i18n  */
 const i18n = {
   en: {
     "nav.home":"Home","nav.about":"About","nav.skills":"Skills","nav.work":"Selected Work","nav.contact":"Contact",
@@ -32,6 +32,7 @@ const i18n = {
     "contact.ctah":"Open to frontend roles","contact.ctap":"Available for full-time positions and freelance projects. Reply within a day.",
     "footer.left":"© 2026 Kanpasut Sangthong","footer.right":"Built with care, in Thailand"
   },
+  
   th: {
     "nav.home":"หน้าแรก","nav.about":"เกี่ยวกับ","nav.skills":"ทักษะ","nav.work":"ผลงานคัดสรร","nav.contact":"ติดต่อ",
     "hero.eyebrow":"Frontend Developer / พอร์ตโฟลิโอ",
@@ -79,7 +80,7 @@ function setLang(lang){
   if(lightboxState.open) renderLightbox();
 }
 
-/* ---------------- mobile nav ---------------- */
+/*  mobile nav  */
 document.getElementById('mobileToggle').addEventListener('click', ()=>{
   document.getElementById('navLinks').classList.toggle('mobile-open');
 });
@@ -87,7 +88,7 @@ document.querySelectorAll('.nav-links a').forEach(a=>{
   a.addEventListener('click', ()=>document.getElementById('navLinks').classList.remove('mobile-open'));
 });
 
-/* ---------------- phone parallax (guarded) ---------------- */
+/*  phone parallax (guarded)  */
 const phoneEl = document.querySelector('.phone');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
@@ -102,13 +103,24 @@ if(phoneEl && !reduceMotion && finePointer){
   stage.addEventListener('mouseleave', ()=>{ phoneEl.style.transform = 'rotateY(-18deg) rotateX(6deg)'; });
 }
 
-/* ---------------- lightbox ---------------- */
+/*  lightbox  */
 const galleries = {
-  hayday:   { titleKey:"p1.title", count:4, prompt:"HaydayShop screenshot" },
-  coffee:   { titleKey:"p2.title", count:4, prompt:"Coffee Shop site screenshot" },
-  safety:   { titleKey:"p3.title", count:4, prompt:"Safety Alert System photo" },
-  deltaarm: { titleKey:"p4.title", count:4, prompt:"Delta Arm project photo" }
+  hayday:   { titleKey:"p1.title", count:4, prompt:"HaydayShop screenshot", srcPrefix:"images/Hayday", ext:".png" },
+  coffee:   { titleKey:"p2.title", count:4, prompt:"Coffee Shop site screenshot", srcPrefix:"images/Coffee", ext:".png" },
+  safety:   { titleKey:"p3.title", count:4, prompt:"Safety Alert System photo", srcPrefix:"images/Safety", ext:".png" },
+  deltaarm: {
+    titleKey:"p4.title",
+    count:4,
+    prompt:"Delta Arm project photo",
+    srcs:[
+      "images/Delta Arm1.jpg",
+      "images/Delta Arm2.png",
+      "images/Delta Arm3.jpg",
+      "images/Delta Arm4.jpg"
+    ]
+  }
 };
+
 const lightboxState = { open:false, key:null, index:0 };
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
@@ -122,29 +134,35 @@ function openLightbox(key){
   renderLightbox();
   document.getElementById('lbClose').focus();
 }
+
 function closeLightbox(){
   lightboxState.open = false;
   lb.classList.remove('open');
   document.body.style.overflow = '';
 }
+
 function renderLightbox(){
   const g = galleries[lightboxState.key];
   if(!g) return;
   const n = lightboxState.index + 1;
-  lbImg.textContent = `${g.prompt} ${n} — replace with real image (src="project-${lightboxState.key}-${n}.jpg")`;
+  const src = g.srcs ? g.srcs[lightboxState.index] : g.srcPrefix ? `${g.srcPrefix}${n}${g.ext}` : `project-${lightboxState.key}-${n}.jpg`;
+  lbImg.innerHTML = `<img src="${src}" alt="${g.prompt} ${n}" />`;
   lbCount.textContent = `${n} / ${g.count}`;
   lbTitle.textContent = i18n[currentLang][g.titleKey] || '';
 }
+
 function stepLightbox(dir){
   const g = galleries[lightboxState.key];
   lightboxState.index = (lightboxState.index + dir + g.count) % g.count;
   renderLightbox();
 }
+
 document.querySelectorAll('.project').forEach(p=>{
   const key = p.getAttribute('data-project');
   p.addEventListener('click', ()=>openLightbox(key));
   p.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openLightbox(key); } });
 });
+
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 document.getElementById('lbPrev').addEventListener('click', ()=>stepLightbox(-1));
 document.getElementById('lbNext').addEventListener('click', ()=>stepLightbox(1));
@@ -155,6 +173,7 @@ document.addEventListener('keydown', (e)=>{
   if(e.key === 'ArrowLeft') stepLightbox(-1);
   if(e.key === 'ArrowRight') stepLightbox(1);
 });
+
 /* basic touch swipe */
 let touchX = null;
 lb.addEventListener('touchstart', (e)=>{ touchX = e.touches[0].clientX; });
