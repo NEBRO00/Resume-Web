@@ -2,9 +2,9 @@
 const i18n = {
   en: {
     "nav.home":"Home","nav.about":"About","nav.skills":"Skills","nav.work":"Selected Work","nav.contact":"Contact",
-    "hero.eyebrow":"Frontend Developer / Portfolio",
-    "hero.role":"Frontend Developer — building interfaces with an engineer's discipline",
-    "hero.sub":"A frontend developer with a background in electronics engineering — systematic, detail-driven, and quick to understand how code logic and structure fit together.",
+    "hero.eyebrow":"Frontend Developer / Resume",
+    "hero.role":"Frontend Developer ",
+    "hero.sub":"Frontend developer with an electronics engineering background. Built [ชื่อโปรเจกต์/ระบบ] using [React/JS/etc.], applying the same systematic debugging approach from hardware troubleshooting to code — comfortable tracing logic across the full stack from UI down to data flow.",
     "hero.cta1":"↓ Download Resume","hero.cta2":"Contact Me",
     "hero.cardtag":"Dev / EE","hero.cardrole":"Frontend Developer",
     "about.eyebrow":"About","about.h":"Engineering discipline, frontend craft",
@@ -35,9 +35,9 @@ const i18n = {
   
   th: {
     "nav.home":"หน้าแรก","nav.about":"เกี่ยวกับ","nav.skills":"ทักษะ","nav.work":"ผลงานคัดสรร","nav.contact":"ติดต่อ",
-    "hero.eyebrow":"Frontend Developer / พอร์ตโฟลิโอ",
-    "hero.role":"Frontend Developer — สร้างอินเทอร์เฟซด้วยวินัยแบบวิศวกร",
-    "hero.sub":"นักพัฒนา Frontend ที่มีพื้นฐานวิศวกรรมอิเล็กทรอนิกส์ ทำงานอย่างเป็นระบบ ใส่ใจรายละเอียด และเข้าใจตรรกะ-โครงสร้างของโค้ดได้อย่างรวดเร็ว",
+    "hero.eyebrow":"Frontend Developer / Resume",
+    "hero.role":"Frontend Developer ",
+    "hero.sub":"นักพัฒนา Frontend ที่มีพื้นฐานวิศวกรรมอิเล็กทรอนิกส์ เคยสร้าง [ชื่อโปรเจกต์ เช่น ระบบสั่งซื้อ Hay Day / เว็บพอร์ตโฟลิโอ] ด้วย [React/JS/HTML-CSS ฯลฯ] นำแนวคิดการแก้ปัญหาแบบเป็นระบบจากงานวิศวกรรม (เช่น debug เครื่องจักร PLC) มาปรับใช้กับการเขียนโค้ด ถนัดไล่ตรรกะตั้งแต่หน้า UI ไปจนถึงการจัดการข้อมูล",
     "hero.cta1":"↓ ดาวน์โหลดเรซูเม่","hero.cta2":"ติดต่อฉัน",
     "hero.cardtag":"Dev / EE","hero.cardrole":"Frontend Developer",
     "about.eyebrow":"เกี่ยวกับ","about.h":"วินัยแบบวิศวกร กับงานฝีมือฝั่ง Frontend",
